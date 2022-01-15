@@ -1,0 +1,30 @@
+/*
+ * Copyright 2022 Jochen Kupperschmidt
+ * License: MIT (see file `LICENSE` for details)
+ */
+
+use anyhow::Result;
+use serde::{Deserialize, Serialize};
+use std::io::Write;
+use std::path::PathBuf;
+
+use crate::io;
+
+#[derive(Deserialize, Serialize, Debug)]
+pub(crate) struct Role {
+    pub name: String,
+    pub member_names: Vec<String>,
+}
+
+/// Read roles from JSON file.
+pub(crate) fn read_roles(path: PathBuf) -> Result<Vec<Role>> {
+    let reader = io::get_reader(path)?;
+    let roles = serde_json::from_reader(reader)?;
+    Ok(roles)
+}
+
+/// Write roles to JSON file.
+pub(crate) fn write_roles(roles: Vec<Role>, writer: impl Write) -> Result<()> {
+    serde_json::to_writer(writer, &roles)?;
+    Ok(())
+}

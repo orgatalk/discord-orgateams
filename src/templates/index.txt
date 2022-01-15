@@ -1,0 +1,6 @@
+{%- for role in roles %}
+{{ role.name }} ({{ role.member_names|length }} Mitglieder)
+  {%- for member_name in role.member_names %}
+- {{ member_name }}
+  {%- endfor %}
+{%- endfor %}
