@@ -5,6 +5,8 @@
 
 - Updated Rust to v1.62.0.
 
+- Updated clap to v3.2.8.
+
 
 ## 0.1.0 (2022-01-15)
 
