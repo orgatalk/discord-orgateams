@@ -33,15 +33,18 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-fn export_json(config: &config::DiscordConfig, writer: impl Write) -> Result<()> {
+fn fetch_roles(config: &config::DiscordConfig) -> Result<Vec<model::Role>> {
     let api_client = discord_api::Client::new(&config.bot_token);
     let guild_members = api_client.get_guild_members(&config.guild_id)?;
     let guild_roles = api_client.get_guild_roles(&config.guild_id)?;
 
     let roles = assembly::assemble_roles(&guild_members, &guild_roles, &config.roles_excluded);
+    Ok(roles)
+}
 
+fn export_json(config: &config::DiscordConfig, writer: impl Write) -> Result<()> {
+    let roles = fetch_roles(config)?;
     model::write_roles(roles, writer)?;
-
     Ok(())
 }
 
