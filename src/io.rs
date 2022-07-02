@@ -17,11 +17,10 @@ pub(crate) fn get_reader(path: PathBuf) -> Result<Box<dyn Read>> {
 
 /// Obtain a writer to write the output to.
 pub(crate) fn get_writer(filename: Option<PathBuf>) -> Result<Box<dyn Write>> {
-    let writer: Box<dyn Write>;
-    if filename.is_some() {
-        writer = Box::new(File::create(filename.unwrap())?);
+    let writer: Box<dyn Write> = if filename.is_some() {
+        Box::new(File::create(filename.unwrap())?)
     } else {
-        writer = Box::new(io::stdout());
+        Box::new(io::stdout())
     };
     Ok(writer)
 }
