@@ -9,6 +9,8 @@
 
 - Updated Tera to v1.16.0.
 
+- Updated toml to v0.5.9.
+
 
 ## 0.1.0 (2022-01-15)
 
