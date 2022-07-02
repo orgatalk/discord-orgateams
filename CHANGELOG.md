@@ -7,6 +7,8 @@
 
 - Updated clap to v3.2.8.
 
+- Updated Tera to v1.16.0.
+
 
 ## 0.1.0 (2022-01-15)
 
