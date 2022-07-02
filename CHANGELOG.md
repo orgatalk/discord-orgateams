@@ -11,6 +11,8 @@
 
 - Updated toml to v0.5.9.
 
+- Display singular form for single team, member.
+
 
 ## 0.1.0 (2022-01-15)
 

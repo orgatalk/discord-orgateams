@@ -63,13 +63,13 @@
   <body>
 
     <main>
-      <h1>OrgaTalk Discord<br>Orga team roles and memberships <span class="roles-count">{{ roles|length }} Teams</span></h1>
+      <h1>OrgaTalk Discord<br>Orga team roles and memberships <span class="roles-count">{{ roles|length }} {% if roles|length == 1 %}Team{% else %}Teams{% endif %}</span></h1>
 
       <div class="roles">
       {%- for role in roles %}
         <div class="role">
           <div class="role-name">{{ role.name }}</div>
-          <div class="role-member-count">{{ role.member_names|length }} Mitglieder</div>
+          <div class="role-member-count">{{ role.member_names|length }} {% if role.member_names|length == 1 %}Mitglied{% else %}Mitglieder{% endif %}</div>
           <ol class="role-members">
         {%- for member_name in role.member_names %}
             <li>{{ member_name }}</li>
