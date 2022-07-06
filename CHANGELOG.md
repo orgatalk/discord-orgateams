@@ -5,6 +5,8 @@
 
 - Support role colors, use in HTML output.
 
+- Show role member lists in HTML output again. Collapsed by default.
+
 
 ## 0.2.0 (2022-07-06)
 

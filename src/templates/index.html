@@ -24,6 +24,7 @@
       h1 {
         font-size: 2rem;
         font-weight: normal;
+        line-height: 1.2;
         margin-bottom: 0.5rem;
       }
 
@@ -31,7 +32,7 @@
         color: var(--dimmed);
         display: block;
         font-size: 1.25rem;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
       }
 
       .roles {
@@ -48,15 +49,24 @@
         padding-bottom: 0.25rem;
       }
 
+      summary {
+        color: var(--dimmed);
+        cursor: pointer;
+        display: block;
+      }
+
+      summary:hover .role-member-count {
+        text-decoration: underline;
+      }
+
       .role-member-count {
         color: var(--dimmed);
         font-size: 0.875rem;
       }
 
       .role-members {
-        color: var(--dimmed);
-        display: none;
         font-size: 0.75rem;
+        line-height: 1.5;
         list-style: none;
         margin: 0.5rem 0 0;
         padding: 0;
@@ -70,17 +80,19 @@
       <div class="roles-count">{{ roles|length }} {% if roles|length == 1 %}Team{% else %}Teams{% endif %}</div>
 
       <div class="roles">
-      {%- for role in roles %}
+        {%- for role in roles %}
         <div class="role">
           <div class="role-name" style="--role-color: {{ role.color_hex }};">{{ role.name }}</div>
-          <div class="role-member-count">{{ role.member_names|length }} {% if role.member_names|length == 1 %}Mitglied{% else %}Mitglieder{% endif %}</div>
-          <ol class="role-members">
-        {%- for member_name in role.member_names %}
-            <li>{{ member_name }}</li>
-        {%- endfor %}
-          </ol>
+          <details>
+            <summary><span class="role-member-count">{{ role.member_names|length }} {% if role.member_names|length == 1 %}Mitglied{% else %}Mitglieder{% endif %}</span></summary>
+            <ol class="role-members">
+              {%- for member_name in role.member_names %}
+              <li>{{ member_name }}</li>
+              {%- endfor %}
+            </ol>
+          </details>
         </div>
-      {%- endfor %}
+        {%- endfor %}
       </div>
     </main>
 
