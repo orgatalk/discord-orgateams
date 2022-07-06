@@ -24,13 +24,14 @@
       h1 {
         font-size: 2rem;
         font-weight: normal;
-        margin-bottom: 4rem;
+        margin-bottom: 0.5rem;
       }
 
       .roles-count {
         color: var(--dimmed);
         display: block;
         font-size: 1.25rem;
+        margin-bottom: 4rem;
       }
 
       .roles {
@@ -63,7 +64,8 @@
   <body>
 
     <main>
-      <h1>OrgaTalk Discord<br>Orga team roles and memberships <span class="roles-count">{{ roles|length }} {% if roles|length == 1 %}Team{% else %}Teams{% endif %}</span></h1>
+      <h1>OrgaTalk Discord<br>Orga team roles and memberships</h1>
+      <div class="roles-count">{{ roles|length }} {% if roles|length == 1 %}Team{% else %}Teams{% endif %}</div>
 
       <div class="roles">
       {%- for role in roles %}
