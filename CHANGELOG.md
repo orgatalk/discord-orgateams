@@ -5,6 +5,8 @@
 
 - Replaced CLI subcommands (`export`, `render`) with options.
 
+- Document usage.
+
 - Updated Rust to v1.62.0.
 
 - Updated clap to v3.2.8.
