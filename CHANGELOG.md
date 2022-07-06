@@ -1,6 +1,9 @@
 # Changelog
 
 
+## 0.3.0 (unreleased)
+
+
 ## 0.2.0 (2022-07-06)
 
 - Replaced CLI subcommands (`export`, `render`) with options.
