@@ -42,13 +42,15 @@
       }
 
       .role-name {
+        border-bottom: var(--role-color, currentColor) solid 1px;
         display: block;
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
       }
 
       .role-member-count {
         color: var(--dimmed);
         font-size: 0.875rem;
-        margin-top: 0.25rem;
       }
 
       .role-members {
@@ -70,7 +72,7 @@
       <div class="roles">
       {%- for role in roles %}
         <div class="role">
-          <div class="role-name">{{ role.name }}</div>
+          <div class="role-name" style="--role-color: {{ role.color_hex }};">{{ role.name }}</div>
           <div class="role-member-count">{{ role.member_names|length }} {% if role.member_names|length == 1 %}Mitglied{% else %}Mitglieder{% endif %}</div>
           <ol class="role-members">
         {%- for member_name in role.member_names %}

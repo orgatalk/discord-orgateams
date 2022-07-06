@@ -25,6 +25,7 @@ pub(crate) struct User {
 pub(crate) struct Role {
     pub id: String,
     pub name: String,
+    pub color: u32,
 }
 
 /// Client for Discord API

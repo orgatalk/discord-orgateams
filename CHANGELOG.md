@@ -3,6 +3,8 @@
 
 ## 0.3.0 (unreleased)
 
+- Support role colors, use in HTML output.
+
 
 ## 0.2.0 (2022-07-06)
 

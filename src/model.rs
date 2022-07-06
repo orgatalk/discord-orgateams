@@ -14,6 +14,7 @@ use crate::io;
 pub(crate) struct Role {
     pub name: String,
     pub member_names: Vec<String>,
+    pub color_hex: String,
 }
 
 /// Read roles from JSON file.
