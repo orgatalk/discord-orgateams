@@ -5,7 +5,6 @@
 
 use anyhow::Result;
 use std::io::Write;
-use std::path::PathBuf;
 mod assembly;
 mod cli;
 mod config;
@@ -17,48 +16,28 @@ mod templating;
 fn main() -> Result<()> {
     let args = cli::parse_args();
 
+    let config = config::load_config(&args.config_filename)?;
     let writer: Box<dyn Write> = io::get_writer(args.output_filename)?;
 
-    match args.command {
-        cli::Command::Export => {
-            let config = config::load_config(&args.config_filename)?;
-            export_json(&config.discord, writer)?;
-        }
-        cli::Command::Render {
-            input_filename,
-            output_format,
-        } => render_roles(input_filename, output_format, writer)?,
-    }
+    let roles = match args.roles_input_filename {
+        Some(filename) => model::read_roles(filename)?,
+        None => fetch_roles_from_discord(&config.discord)?,
+    };
+
+    match args.output_format {
+        cli::OutputFormat::Html => templating::render_html(roles, writer)?,
+        cli::OutputFormat::Json => model::write_roles(roles, writer)?,
+        cli::OutputFormat::Text => templating::render_text(roles, writer)?,
+    };
 
     Ok(())
 }
 
-fn fetch_roles(config: &config::DiscordConfig) -> Result<Vec<model::Role>> {
+fn fetch_roles_from_discord(config: &config::DiscordConfig) -> Result<Vec<model::Role>> {
     let api_client = discord_api::Client::new(&config.bot_token);
     let guild_members = api_client.get_guild_members(&config.guild_id)?;
     let guild_roles = api_client.get_guild_roles(&config.guild_id)?;
 
     let roles = assembly::assemble_roles(&guild_members, &guild_roles, &config.roles_excluded);
     Ok(roles)
-}
-
-fn export_json(config: &config::DiscordConfig, writer: impl Write) -> Result<()> {
-    let roles = fetch_roles(config)?;
-    model::write_roles(roles, writer)?;
-    Ok(())
-}
-
-fn render_roles(
-    input_filename: PathBuf,
-    output_format: cli::OutputFormat,
-    writer: impl Write,
-) -> Result<()> {
-    let roles = model::read_roles(input_filename)?;
-
-    match output_format {
-        cli::OutputFormat::Html => templating::render_html(roles, writer)?,
-        cli::OutputFormat::Text => templating::render_text(roles, writer)?,
-    }
-
-    Ok(())
 }

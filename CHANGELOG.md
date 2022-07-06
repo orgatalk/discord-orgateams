@@ -3,6 +3,8 @@
 
 ## 0.2.0 (unreleased)
 
+- Replaced CLI subcommands (`export`, `render`) with options.
+
 - Updated Rust to v1.62.0.
 
 - Updated clap to v3.2.8.
