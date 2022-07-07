@@ -21,7 +21,7 @@ $ orgatalk-discord-orgateams --help
 ```
 
 
-# Configuration File
+### Configuration File
 
 A configuration file is required. Create a custom one based off of the
 included [`config-example.toml`](config-example.toml). It uses the
