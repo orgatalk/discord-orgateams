@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Jochen Kupperschmidt
+ * Copyright 2022-2024 Jochen Kupperschmidt
  * License: MIT (see file `LICENSE` for details)
  */
 
