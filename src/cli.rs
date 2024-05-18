@@ -3,32 +3,32 @@
  * License: MIT (see file `LICENSE` for details)
  */
 
-use clap::Parser;
+use clap::{Parser, ValueEnum};
 use std::path::PathBuf;
 
 /// Command-line arguments
 #[derive(Parser, Debug)]
-#[clap(about, author, version)]
+#[command(about, author, version)]
 pub(crate) struct Args {
     /// Configuration filename
-    #[clap(short = 'c', long = "config")]
+    #[arg(short = 'c', long = "config")]
     pub config_filename: PathBuf,
 
     /// Roles input filename (to load roles from JSON instead of
     /// fetching them from Discord)
-    #[clap(long = "roles-input")]
+    #[arg(long = "roles-input")]
     pub roles_input_filename: Option<PathBuf>,
 
     /// Output filename [default: STDOUT]
-    #[clap(short = 'o', long = "output")]
+    #[arg(short = 'o', long = "output")]
     pub output_filename: Option<PathBuf>,
 
     /// Output format
-    #[clap(short = 'f', long = "format", arg_enum, default_value = "html")]
+    #[arg(short = 'f', long = "format", value_enum, default_value = "html")]
     pub output_format: OutputFormat,
 }
 
-#[derive(clap::ArgEnum, Clone, Debug)]
+#[derive(Clone, Debug, ValueEnum)]
 pub(crate) enum OutputFormat {
     Html,
     Json,

@@ -10,7 +10,7 @@ keywords = ["discord"]
 
 [dependencies]
 anyhow = "1.0"
-clap = { version = "3.2.8", default-features = false, features = ["cargo", "derive", "std"] }
+clap = { version = "4.5.4", default-features = false, features = ["cargo", "derive", "error-context", "help", "std", "usage", "wrap_help"] }
 lazy_static = "1.4.0"
 multimap = "0.10.0"
 serde = { version = "1", features = ["derive"] }

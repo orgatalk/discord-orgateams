@@ -5,6 +5,8 @@
 
 - Raised minimum supported Rust version to 1.76.0.
 
+- Updated clap to v4.5.4.
+
 - Updated multimap to v0.10.0.
 
 - Updated Tera to v1.19.1.
