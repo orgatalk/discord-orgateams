@@ -3,6 +3,8 @@
 
 ## 0.4.0 (unreleased)
 
+- Raised minimum supported Rust version to 1.76.0.
+
 
 ## 0.3.0 (2022-07-06)
 
