@@ -7,6 +7,8 @@
 
 - Updated multimap to v0.10.0.
 
+- Updated Tera to v1.19.1.
+
 
 ## 0.3.0 (2022-07-06)
 
