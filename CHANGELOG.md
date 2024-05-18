@@ -5,6 +5,8 @@
 
 - Raised minimum supported Rust version to 1.76.0.
 
+- Updated multimap to v0.10.0.
+
 
 ## 0.3.0 (2022-07-06)
 
