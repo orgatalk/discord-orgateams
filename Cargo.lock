@@ -386,7 +386,6 @@ version = "0.4.0"
 dependencies = [
  "anyhow",
  "clap",
- "lazy_static",
  "multimap",
  "serde",
  "serde_json",

@@ -4,21 +4,22 @@
  */
 
 use anyhow::Result;
-use lazy_static::lazy_static;
 use std::io::Write;
+use std::sync::OnceLock;
 use tera::{Context, Tera};
 
 use crate::model::Role;
 
-lazy_static! {
-    static ref TERA: Tera = {
+fn get_tera() -> &'static Tera {
+    static TERA: OnceLock<Tera> = OnceLock::new();
+    TERA.get_or_init(|| {
         let mut tera = Tera::default();
         tera.add_raw_template("index.html", include_str!("templates/index.html"))
             .unwrap();
         tera.add_raw_template("index.txt", include_str!("templates/index.txt"))
             .unwrap();
         tera
-    };
+    })
 }
 
 /// Render roles as HTML representation.
@@ -37,7 +38,7 @@ fn render(template_name: &str, roles: Vec<Role>, writer: impl Write) -> Result<(
     let mut context = Context::new();
     context.insert("roles", &roles);
 
-    TERA.render_to(template_name, &context, writer)?;
+    get_tera().render_to(template_name, &context, writer)?;
 
     Ok(())
 }

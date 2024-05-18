@@ -15,6 +15,8 @@
 
 - Updated ureq to v2.9.7.
 
+- Removed dependency on lazy\_static.
+
 
 ## 0.3.0 (2022-07-06)
 
