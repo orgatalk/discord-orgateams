@@ -7,6 +7,8 @@
 
 - Fully switched to English.
 
+- Added user count.
+
 - Added generator and timestamp to page footer.
 
 - Raised minimum supported Rust version to 1.76.0.

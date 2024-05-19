@@ -16,10 +16,11 @@ pub(crate) struct Data {
     pub title: String,
     pub subtitle: Option<String>,
     pub roles: Vec<Role>,
+    pub user_count: u16,
     pub generated_at: DateTime<Utc>,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Clone, Deserialize, Serialize, Debug)]
 pub(crate) struct Role {
     pub name: String,
     pub member_names: Vec<String>,

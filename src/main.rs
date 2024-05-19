@@ -5,6 +5,7 @@
 
 use anyhow::Result;
 use chrono::Utc;
+use std::collections::HashSet;
 use std::io::Write;
 mod assembly;
 mod cli;
@@ -52,7 +53,18 @@ fn assemble_data(config: Config, roles: Vec<model::Role>) -> Data {
     Data {
         title: config.title,
         subtitle: config.subtitle,
-        roles,
+        roles: roles.clone(),
+        user_count: count_users(roles),
         generated_at: Utc::now(),
     }
+}
+
+fn count_users(roles: Vec<model::Role>) -> u16 {
+    let mut names = HashSet::new();
+    for role in &roles {
+        for name in &role.member_names {
+            names.insert(name);
+        }
+    }
+    names.len() as u16
 }
