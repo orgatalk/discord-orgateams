@@ -46,7 +46,7 @@ pub(crate) fn render_text(data: Data, writer: impl Write) -> Result<()> {
 }
 
 fn render(template_name: &str, context: &Context, writer: impl Write) -> Result<()> {
-    get_tera().render_to(template_name, &context, writer)?;
+    get_tera().render_to(template_name, context, writer)?;
 
     Ok(())
 }
