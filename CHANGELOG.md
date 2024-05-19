@@ -3,6 +3,8 @@
 
 ## 0.4.0 (unreleased)
 
+- Added generator to page footer.
+
 - Raised minimum supported Rust version to 1.76.0.
 
 - Updated clap to v4.5.4.
