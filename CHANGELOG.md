@@ -3,7 +3,7 @@
 
 ## 0.4.0 (unreleased)
 
-- Added generator to page footer.
+- Added generator and timestamp to page footer.
 
 - Raised minimum supported Rust version to 1.76.0.
 

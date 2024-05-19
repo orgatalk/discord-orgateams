@@ -10,10 +10,11 @@ keywords = ["discord"]
 
 [dependencies]
 anyhow = "1.0"
+chrono = { version = "0.4.38", default-features = false, features = ["now", "std", "serde"] }
 clap = { version = "4.5.4", default-features = false, features = ["cargo", "derive", "error-context", "help", "std", "usage", "wrap_help"] }
 multimap = "0.10.0"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0"
-tera = { version = "1.19.1", default-features = false }
+tera = "1.19.1"
 toml = "0.8.13"
 ureq = { version = "2.9.7", features = ["json"] }

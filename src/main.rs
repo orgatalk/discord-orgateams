@@ -4,6 +4,7 @@
  */
 
 use anyhow::Result;
+use chrono::Utc;
 use std::io::Write;
 mod assembly;
 mod cli;
@@ -24,8 +25,10 @@ fn main() -> Result<()> {
         None => fetch_roles_from_discord(&config.discord)?,
     };
 
+    let generated_at = Utc::now();
+
     match args.output_format {
-        cli::OutputFormat::Html => templating::render_html(roles, writer)?,
+        cli::OutputFormat::Html => templating::render_html(roles, generated_at, writer)?,
         cli::OutputFormat::Json => model::write_roles(roles, writer)?,
         cli::OutputFormat::Text => templating::render_text(roles, writer)?,
     };
