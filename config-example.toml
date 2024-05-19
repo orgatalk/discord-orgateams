@@ -1,3 +1,6 @@
+title = "Title"
+subtitle = "Subtitle"
+
 [discord]
 bot_token = "your-secret-bot-token"
 guild_id = "your-guild-id"

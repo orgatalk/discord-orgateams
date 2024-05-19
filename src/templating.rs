@@ -25,12 +25,16 @@ fn get_tera() -> &'static Tera {
 
 /// Render roles as HTML representation.
 pub(crate) fn render_html(
+    title: String,
+    subtitle: Option<String>,
     roles: Vec<Role>,
     generated_at: DateTime<Utc>,
     writer: impl Write,
 ) -> Result<()> {
     let mut context = Context::new();
     context.insert("roles", &roles);
+    context.insert("title", &title);
+    context.insert("subtitle", &subtitle);
     context.insert("generated_at", &generated_at);
 
     render("index.html", &context, writer)?;

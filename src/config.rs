@@ -11,6 +11,8 @@ use std::path::Path;
 
 #[derive(Debug, Deserialize)]
 pub(crate) struct Config {
+    pub title: String,
+    pub subtitle: Option<String>,
     pub discord: DiscordConfig,
 }
 

@@ -28,7 +28,9 @@ fn main() -> Result<()> {
     let generated_at = Utc::now();
 
     match args.output_format {
-        cli::OutputFormat::Html => templating::render_html(roles, generated_at, writer)?,
+        cli::OutputFormat::Html => {
+            templating::render_html(config.title, config.subtitle, roles, generated_at, writer)?
+        }
         cli::OutputFormat::Json => model::write_roles(roles, writer)?,
         cli::OutputFormat::Text => templating::render_text(roles, writer)?,
     };

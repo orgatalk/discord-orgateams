@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OrgaTalk Discord – Orga team roles and memberships</title>
+    <title>{{ title }}{% if subtitle %} – {{ subtitle }}{% endif %}</title>
     <style>
       :root {
         --dimmed: #8e9297;
@@ -95,8 +95,10 @@
   <body>
 
     <main>
-      <h1 class="title">OrgaTalk Discord</h1>
-      <div class="subtitle">Orga team roles and memberships</div>
+      <h1 class="title">{{ title }}</h1>
+      {%- if subtitle %}
+      <div class="subtitle">{{ subtitle }}</div>
+      {%- endif %}
 
       <div class="roles-count">{{ roles|length }} {% if roles|length == 1 %}Team{% else %}Teams{% endif %}</div>
 

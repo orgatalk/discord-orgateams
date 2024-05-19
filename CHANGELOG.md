@@ -3,6 +3,8 @@
 
 ## 0.4.0 (unreleased)
 
+- Made title and optional subtitle configurable.
+
 - Added generator and timestamp to page footer.
 
 - Raised minimum supported Rust version to 1.76.0.
