@@ -4,12 +4,11 @@
  */
 
 use anyhow::Result;
-use chrono::{DateTime, Utc};
 use std::io::Write;
 use std::sync::OnceLock;
 use tera::{Context, Tera};
 
-use crate::model::Role;
+use crate::model::Data;
 
 fn get_tera() -> &'static Tera {
     static TERA: OnceLock<Tera> = OnceLock::new();
@@ -24,18 +23,12 @@ fn get_tera() -> &'static Tera {
 }
 
 /// Render roles as HTML representation.
-pub(crate) fn render_html(
-    title: String,
-    subtitle: Option<String>,
-    roles: Vec<Role>,
-    generated_at: DateTime<Utc>,
-    writer: impl Write,
-) -> Result<()> {
+pub(crate) fn render_html(data: Data, writer: impl Write) -> Result<()> {
     let mut context = Context::new();
-    context.insert("roles", &roles);
-    context.insert("title", &title);
-    context.insert("subtitle", &subtitle);
-    context.insert("generated_at", &generated_at);
+    context.insert("roles", &data.roles);
+    context.insert("title", &data.title);
+    context.insert("subtitle", &data.subtitle);
+    context.insert("generated_at", &data.generated_at);
 
     render("index.html", &context, writer)?;
 
@@ -43,9 +36,9 @@ pub(crate) fn render_html(
 }
 
 /// Render roles as text representation.
-pub(crate) fn render_text(roles: Vec<Role>, writer: impl Write) -> Result<()> {
+pub(crate) fn render_text(data: Data, writer: impl Write) -> Result<()> {
     let mut context = Context::new();
-    context.insert("roles", &roles);
+    context.insert("roles", &data.roles);
 
     render("index.txt", &context, writer)?;
 

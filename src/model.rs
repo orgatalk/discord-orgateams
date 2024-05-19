@@ -4,11 +4,20 @@
  */
 
 use anyhow::Result;
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use std::io::Write;
 use std::path::PathBuf;
 
 use crate::io;
+
+#[derive(Deserialize, Serialize, Debug)]
+pub(crate) struct Data {
+    pub title: String,
+    pub subtitle: Option<String>,
+    pub roles: Vec<Role>,
+    pub generated_at: DateTime<Utc>,
+}
 
 #[derive(Deserialize, Serialize, Debug)]
 pub(crate) struct Role {
