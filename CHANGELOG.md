@@ -1,6 +1,9 @@
 # Changelog
 
 
+## 0.5.0 (unreleased)
+
+
 ## 0.4.0 (2024-05-19)
 
 - Made title and optional subtitle configurable.
