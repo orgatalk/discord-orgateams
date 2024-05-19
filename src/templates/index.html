@@ -15,6 +15,7 @@
         color: #fcfcfc;
         font-family: sans-serif;
         font-size: 16px;
+        line-height: 1.5;
         margin: 0 auto;
         max-width: 768px;
         padding: 1.5rem 1rem;
@@ -24,19 +25,26 @@
         color: var(--link-color);
       }
 
-      h1 {
-        font-size: 2rem;
+      .title,
+      .subtitle {
         font-weight: normal;
+        margin: 0;
+      }
+
+      .title {
+        font-size: 2.25rem;
         line-height: 1.2;
-        margin-bottom: 0.5rem;
-        margin-top: 0;
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        margin-top: 0.25rem;
       }
 
       .roles-count {
         color: var(--dimmed);
         display: block;
-        font-size: 1.25rem;
-        margin-bottom: 3rem;
+        margin: 1.5rem 0 1.75rem 0;
       }
 
       .roles {
@@ -87,7 +95,9 @@
   <body>
 
     <main>
-      <h1>OrgaTalk Discord<br>Orga team roles and memberships</h1>
+      <h1 class="title">OrgaTalk Discord</h1>
+      <div class="subtitle">Orga team roles and memberships</div>
+
       <div class="roles-count">{{ roles|length }} {% if roles|length == 1 %}Team{% else %}Teams{% endif %}</div>
 
       <div class="roles">
