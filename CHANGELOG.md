@@ -5,6 +5,8 @@
 
 - Made title and optional subtitle configurable.
 
+- Fully switched to English.
+
 - Added generator and timestamp to page footer.
 
 - Raised minimum supported Rust version to 1.76.0.

@@ -100,14 +100,14 @@
       <div class="subtitle">{{ subtitle }}</div>
       {%- endif %}
 
-      <div class="roles-count">{{ roles|length }} {% if roles|length == 1 %}Team{% else %}Teams{% endif %}</div>
+      <div class="roles-count">{{ roles|length }} {% if roles|length == 1 %}team{% else %}teams{% endif %}</div>
 
       <div class="roles">
         {%- for role in roles %}
         <div class="role">
           <div class="role-name" style="--role-color: {{ role.color_hex }};">{{ role.name }}</div>
           <details>
-            <summary><span class="role-member-count">{{ role.member_names|length }} {% if role.member_names|length == 1 %}Mitglied{% else %}Mitglieder{% endif %}</span></summary>
+            <summary><span class="role-member-count">{{ role.member_names|length }} {% if role.member_names|length == 1 %}member{% else %}members{% endif %}</span></summary>
             <ol class="role-members">
               {%- for member_name in role.member_names %}
               <li>{{ member_name }}</li>
