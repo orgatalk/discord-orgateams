@@ -76,7 +76,7 @@ $ orgatalk-discord-orgateams --config=your-config.toml --format=json
 ```
 
 
-### Import Roles From File
+### Load Roles From File
 
 Instead of fetching roles from the Discord API on every invocation, they
 can be read from a local JSON file:
