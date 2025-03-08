@@ -22,6 +22,8 @@
 - Begun preferring Discord user's server-specific nickname (if given)
   over global name (if given) over username.
 
+- Documented Discord bot setup.
+
 
 ## 0.4.0 (2024-05-19)
 

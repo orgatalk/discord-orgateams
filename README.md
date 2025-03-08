@@ -12,6 +12,20 @@ run the tool to update the HTML export. For this purpose, a
 [cronjob](https://en.wikipedia.org/wiki/Cron) is commonly used.
 
 
+## Discord Setup
+
+- Create a Discord bot. It needs the "Server Members Intent" or you'll
+  run into 403 error responses with a misleading error message).
+
+- Copy the bot token into the configuration file (see below).
+
+- Add it to your server using the OAuth2 flow. This requires a redirect
+  URL (any should work) to be specified and selected as well as the
+  `guild.members.read` scope to be selected to be able to generate an
+  authorization URL (similar to
+  `https://discord.com/oauth2/authorize?client_id=<CLIENT ID>&response_type=code&redirect_uri=<ANY URL>&scope=guilds.members.read`)
+  which should allow to invite the application/bot to your server.
+
 ## Usage
 
 To get an overview of the available options, use the `--help` option:
