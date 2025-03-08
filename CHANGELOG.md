@@ -3,6 +3,10 @@
 
 ## 0.5.0 (unreleased)
 
+- Raised minimum supported Rust version to 1.85.0.
+
+- Raised Rust edition to 2024.
+
 - Updated chrono to v0.4.40.
 
 - Updated clap to v4.5.31.
