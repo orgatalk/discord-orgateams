@@ -16,5 +16,5 @@ multimap = "0.10.0"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0"
 tera = "1.20.0"
-toml = "0.8.13"
+toml = "0.8.20"
 ureq = { version = "2.9.7", features = ["json"] }
