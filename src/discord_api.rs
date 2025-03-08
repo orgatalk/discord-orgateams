@@ -19,6 +19,7 @@ pub(crate) struct GuildMember {
 pub(crate) struct User {
     pub id: String,
     pub username: String,
+    pub global_name: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]

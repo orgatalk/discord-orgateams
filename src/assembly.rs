@@ -49,7 +49,13 @@ fn map_user_ids_to_names(members: &[discord_api::GuildMember]) -> HashMap<&Strin
     let mut user_ids_to_names = HashMap::with_capacity(members.len());
     for member in members {
         let user = &member.user;
-        user_ids_to_names.insert(&user.id, &user.username);
+
+        let name = match &user.global_name {
+            Some(global_name) => global_name,
+            None => &user.username,
+        };
+
+        user_ids_to_names.insert(&user.id, name);
     }
     user_ids_to_names
 }
