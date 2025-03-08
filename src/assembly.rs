@@ -46,9 +46,9 @@ pub(crate) fn assemble_roles(
 }
 
 fn map_user_ids_to_names(members: &[discord_api::GuildMember]) -> HashMap<&String, &String> {
-    let users = members.iter().map(|m| &m.user);
-    let mut user_ids_to_names = HashMap::with_capacity(users.len());
-    for user in users {
+    let mut user_ids_to_names = HashMap::with_capacity(members.len());
+    for member in members {
+        let user = &member.user;
         user_ids_to_names.insert(&user.id, &user.username);
     }
     user_ids_to_names
