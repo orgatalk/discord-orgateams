@@ -5,7 +5,7 @@
 
 use anyhow::Result;
 use serde::Deserialize;
-use ureq::Response;
+use ureq::{Agent, AgentBuilder, Response};
 
 #[derive(Debug, Deserialize)]
 pub(crate) struct GuildMember {
@@ -31,12 +31,14 @@ pub(crate) struct Role {
 /// Client for Discord API
 pub(crate) struct Client {
     bot_token: String,
+    agent: Agent,
 }
 
 impl Client {
     pub(crate) fn new(bot_token: &str) -> Self {
-        Client {
+        Self {
             bot_token: bot_token.to_string(),
+            agent: AgentBuilder::new().build(),
         }
     }
 
@@ -58,7 +60,7 @@ impl Client {
     fn query(&self, url: &str) -> Result<Response> {
         let bot_token = &self.bot_token;
         let authz_value = format!("Bot {bot_token}");
-        let request = ureq::get(url).set("Authorization", &authz_value);
+        let request = self.agent.get(url).set("Authorization", &authz_value);
         Ok(request.call()?)
     }
 }
