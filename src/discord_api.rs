@@ -10,6 +10,7 @@ use ureq::{http::response::Response, Agent, Body};
 #[derive(Debug, Deserialize)]
 pub(crate) struct GuildMember {
     pub user: User,
+    pub nick: Option<String>,
 
     #[serde(rename = "roles")]
     pub role_ids: Vec<String>,

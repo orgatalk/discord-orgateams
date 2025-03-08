@@ -50,9 +50,13 @@ fn map_user_ids_to_names(members: &[discord_api::GuildMember]) -> HashMap<&Strin
     for member in members {
         let user = &member.user;
 
-        let name = match &user.global_name {
-            Some(global_name) => global_name,
-            None => &user.username,
+        // Prefer server-specific nick over global name over username.
+        let name = match &member.nick {
+            Some(nick) => nick,
+            None => match &user.global_name {
+                Some(global_name) => global_name,
+                None => &user.username,
+            },
         };
 
         user_ids_to_names.insert(&user.id, name);

@@ -19,8 +19,8 @@
 
 - Switched to using v10 of the Discord API.
 
-- Begun preferring Discord user's global name, if available, over
-  username.
+- Begun preferring Discord user's server-specific nickname (if given)
+  over global name (if given) over username.
 
 
 ## 0.4.0 (2024-05-19)
