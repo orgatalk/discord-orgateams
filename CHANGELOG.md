@@ -3,6 +3,8 @@
 
 ## 0.5.0 (unreleased)
 
+- Updated chrono to v0.4.40.
+
 
 ## 0.4.0 (2024-05-19)
 
