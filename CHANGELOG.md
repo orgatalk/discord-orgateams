@@ -24,6 +24,8 @@
 
 - Documented Discord bot setup.
 
+- Added script to build Linux release binary in Docker container.
+
 
 ## 0.4.0 (2024-05-19)
 
