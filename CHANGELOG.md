@@ -17,6 +17,8 @@
 
 - Updated ureq to v3.0.8.
 
+- Switched to using v10 of the Discord API.
+
 
 ## 0.4.0 (2024-05-19)
 

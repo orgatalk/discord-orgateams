@@ -44,14 +44,14 @@ impl Client {
 
     /// Fetch members of a guild.
     pub(crate) fn get_guild_members(&self, guild_id: &str) -> Result<Vec<GuildMember>> {
-        let url = format!("https://discord.com/api/v9/guilds/{guild_id}/members?limit=1000");
+        let url = format!("https://discord.com/api/v10/guilds/{guild_id}/members?limit=1000");
         let mut response = self.query(&url)?;
         Ok(response.body_mut().read_json::<Vec<GuildMember>>()?)
     }
 
     /// Fetch roles for a guild.
     pub(crate) fn get_guild_roles(&self, guild_id: &str) -> Result<Vec<Role>> {
-        let url = format!("https://discord.com/api/v9/guilds/{guild_id}/roles");
+        let url = format!("https://discord.com/api/v10/guilds/{guild_id}/roles");
         let mut response = self.query(&url)?;
         Ok(response.body_mut().read_json::<Vec<Role>>()?)
     }
