@@ -104,8 +104,8 @@ fn get_member_names(
 }
 
 fn convert_discord_color_to_hex(discord_color: u32) -> String {
-    let red = discord_color >> 16 & 0xFF;
-    let green = discord_color >> 8 & 0xFF;
+    let red = (discord_color >> 16) & 0xFF;
+    let green = (discord_color >> 8) & 0xFF;
     let blue = discord_color & 0xFF;
 
     format!("#{:0>2x}{:0>2x}{:0>2x}", red, green, blue)
