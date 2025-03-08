@@ -5,6 +5,8 @@
 
 - Updated chrono to v0.4.40.
 
+- Updated clap to v4.5.31.
+
 
 ## 0.4.0 (2024-05-19)
 
