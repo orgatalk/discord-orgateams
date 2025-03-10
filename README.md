@@ -1,11 +1,12 @@
-# OrgaTalk Discord Orga Teams
+# OrgaTalk Roles Exporter for Discord
 
 List orga teams on the [OrgaTalk](https://www.orgatalk.de/) community's
 [Discord](https://discord.com/) server.
 
 The OrgaTalk Discord community uses roles to tag members with the LAN
-party organizer teams they are part of. This tool exports those to a
-static HTML file for display on the web.
+party organizer teams and related projects which they are part of. This
+tool exports those to a static HTML file for display on the web (or to
+JSON or plaintext).
 
 Since the role assignments change over time, it makes sense to regularly
 run the tool to update the HTML export. For this purpose, a
@@ -43,8 +44,8 @@ included [`config-example.toml`](config-example.toml). It uses the
 
 The `roles_excluded` property expects a list of role names to exclude
 from the output. This can be roles only given to bots or, in the case of
-the OrgaTalk community, anything that does not represent an organizer
-role.
+the OrgaTalk community, anything that does not represent an organizer or
+project role.
 
 Then run the program, specifying it:
 

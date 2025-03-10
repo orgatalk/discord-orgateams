@@ -4,7 +4,7 @@ version = "0.6.0"
 authors = ["Jochen Kupperschmidt"]
 edition = "2024"
 rust-version = "1.85.0"
-description = "List orga teams on the OrgaTalk Discord server"
+description = "Export Discord roles and members to HTML, JSON, or plaintext"
 license = "MIT"
 keywords = ["discord"]
 
