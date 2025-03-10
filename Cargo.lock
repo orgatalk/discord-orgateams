@@ -302,6 +302,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "discord-roles-exporter"
+version = "0.6.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "clap",
+ "multimap",
+ "serde",
+ "serde_json",
+ "tera",
+ "toml",
+ "ureq",
+]
+
+[[package]]
 name = "displaydoc"
 version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -735,21 +750,6 @@ name = "once_cell"
 version = "1.20.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "945462a4b81e43c4e3ba96bd7b49d834c6f61198356aa858733bc4acf3cbe62e"
-
-[[package]]
-name = "orgatalk-discord-orgateams"
-version = "0.6.0"
-dependencies = [
- "anyhow",
- "chrono",
- "clap",
- "multimap",
- "serde",
- "serde_json",
- "tera",
- "toml",
- "ureq",
-]
 
 [[package]]
 name = "parse-zoneinfo"

@@ -32,7 +32,7 @@ run the tool to update the HTML export. For this purpose, a
 To get an overview of the available options, use the `--help` option:
 
 ```sh
-$ orgatalk-discord-orgateams --help
+$ discord-roles-exporter --help
 ```
 
 
@@ -50,7 +50,7 @@ project role.
 Then run the program, specifying it:
 
 ```sh
-$ orgatalk-discord-orgateams --config=your-config.toml
+$ discord-roles-exporter --config=your-config.toml
 ```
 
 
@@ -60,20 +60,20 @@ The output will be written to standard output (stdout). To write the
 output to a file, specify the `--output` option:
 
 ```sh
-$ orgatalk-discord-orgateams --config=your-config.toml --output=output.html
+$ discord-roles-exporter --config=your-config.toml --output=output.html
 ```
 
 By default, the output format is HTML. Alternatively, it can be plain
 text …
 
 ```sh
-$ orgatalk-discord-orgateams --config=your-config.toml --format=text
+$ discord-roles-exporter --config=your-config.toml --format=text
 ```
 
 … or JSON:
 
 ```sh
-$ orgatalk-discord-orgateams --config=your-config.toml --format=json
+$ discord-roles-exporter --config=your-config.toml --format=json
 ```
 
 
@@ -83,13 +83,13 @@ Instead of fetching roles from the Discord API on every invocation, they
 can be read from a local JSON file:
 
 ```sh
-$ orgatalk-discord-orgateams --config=your-config.toml --roles-input=roles.json
+$ discord-roles-exporter --config=your-config.toml --roles-input=roles.json
 ```
 
 That expects the roles to first be exported like this:
 
 ```sh
-$ orgatalk-discord-orgateams --config=your-config.toml --format=json --output=roles.json
+$ discord-roles-exporter --config=your-config.toml --format=json --output=roles.json
 ```
 
 This avoids unnecessary requests to the Discord API and, thus, speeds up

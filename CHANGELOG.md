@@ -3,6 +3,9 @@
 
 ## 0.6.0 (unreleased)
 
+- Renamed crate, resulting binary file, and repository to
+  `discord-roles-exporter`.
+
 - Changed sorting of role names to be case-insensitively.
 
 - Added generator meta tag to HTML output.
