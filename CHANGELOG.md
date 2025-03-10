@@ -3,6 +3,8 @@
 
 ## 0.6.0 (unreleased)
 
+- Added generator meta tag to HTML output.
+
 - Tweaked HTML layout dimensions.
 
 
