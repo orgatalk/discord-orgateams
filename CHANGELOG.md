@@ -3,6 +3,8 @@
 
 ## 0.6.0 (unreleased)
 
+- Tweaked HTML layout dimensions.
+
 
 ## 0.5.0 (2025-03-08)
 
