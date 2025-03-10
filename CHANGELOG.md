@@ -1,6 +1,9 @@
 # Changelog
 
 
+## 0.6.0 (unreleased)
+
+
 ## 0.5.0 (2025-03-08)
 
 - Raised minimum supported Rust version to 1.85.0.
