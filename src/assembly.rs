@@ -38,7 +38,7 @@ pub(crate) fn assemble_roles(
         });
     }
 
-    roles.sort_unstable_by(|a, b| a.name.cmp(&b.name));
+    roles.sort_unstable_by_key(|role| role.name.to_lowercase());
 
     roles
 }

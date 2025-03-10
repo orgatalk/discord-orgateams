@@ -3,6 +3,8 @@
 
 ## 0.6.0 (unreleased)
 
+- Changed sorting of role names to be case-insensitively.
+
 - Added generator meta tag to HTML output.
 
 - Tweaked HTML layout dimensions.
