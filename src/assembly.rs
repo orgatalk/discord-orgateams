@@ -28,9 +28,7 @@ pub(crate) fn assemble_roles(
             continue;
         }
 
-        let mut member_names = get_member_names(user_ids, &user_ids_to_names);
-        member_names.sort_unstable_by_key(|name| name.to_lowercase());
-
+        let member_names = get_member_names(user_ids, &user_ids_to_names);
         let color_hex = role_ids_to_colors.get(role_id).unwrap();
 
         roles.push(model::Role {
